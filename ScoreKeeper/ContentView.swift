@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var players: [String] = ["Anna", "Bob", "Charlie"]
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
