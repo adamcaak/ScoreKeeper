@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var players: [String] = ["Anna", "Bob", "Charlie"]
-    @State private var scores: [Int] = [0,0,0]
+    @State private var players: [Player] = [
+        Player(name: "Tom", score: 0),
+        Player(name: "John", score: 0),
+        Player(name: "Mary", score: 0),
+    ]
     
     var body: some View {
         VStack {
-            ForEach(0..<players.count, id: \.description) { index in
-                TextField("Name:", text: $players[index])
-                Stepper("Score:", value: $scores[index])
+            ForEach($players) { $player in
+                TextField("Name:", text: $player.name)
+                Stepper("\(player.score)", value: $player.score)
             }
             
             Button("Add player", systemImage: "plus") {
-                players.append("")
-                scores.append(0)
+                players.append(Player(name: "", score: 0))
             }
             
             Spacer()
