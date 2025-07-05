@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct ScoreBoard {
+    var players: [Player] = [
+        Player(name: "Tom", score: 0),
+        Player(name: "John", score: 0),
+        Player(name: "Mary", score: 0),
+    ]
+}

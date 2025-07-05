@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var players: [Player] = [
-        Player(name: "Tom", score: 0),
-        Player(name: "John", score: 0),
-        Player(name: "Mary", score: 0),
-    ]
+    @State private var scoreboard = ScoreBoard()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +24,7 @@ struct ContentView: View {
                 }
                 .font(.headline)
                 
-                ForEach($players) { $player in
+                ForEach($scoreboard.players) { $player in
                     GridRow {
                         TextField("Name:", text: $player.name)
                         Text("\(player.score)")
@@ -40,7 +36,7 @@ struct ContentView: View {
             .padding(.vertical)
             
             Button("Add player", systemImage: "plus") {
-                players.append(Player(name: "", score: 0))
+                scoreboard.players.append(Player(name: "", score: 0))
             }
             
             Spacer()
