@@ -42,8 +42,18 @@ struct ContentView: View {
             Spacer()
             
             switch scoreboard.state {
-            default:
-                EmptyView()
+            case .setup:
+                Button("Start Game", systemImage: "play.fill") {
+                    scoreboard.state = .playing
+                }
+            case .playing:
+                Button("End Game", systemImage: "stop.fill") {
+                    scoreboard.state = .gameOver
+                }
+            case .gameOver:
+                Button("Reset Game", systemImage: "arrow.counterclockwise.circle") {
+                    scoreboard.state = .setup
+                }
             }
         }
         .padding()
