@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var scoreboard = ScoreBoard()
+    private var startingPoint: Int = 0
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -45,6 +46,7 @@ struct ContentView: View {
             case .setup:
                 Button("Start Game", systemImage: "play.fill") {
                     scoreboard.state = .playing
+                    scoreboard.resetScores(to: startingPoint)
                 }
             case .playing:
                 Button("End Game", systemImage: "stop.fill") {
