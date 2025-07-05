@@ -14,5 +14,7 @@ struct Player: Identifiable {
 }
 
 extension Player: Equatable {
-    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        lhs.name == rhs.name && lhs.score == rhs.score
+    }
 }
