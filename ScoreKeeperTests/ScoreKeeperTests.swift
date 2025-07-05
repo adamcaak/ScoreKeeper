@@ -29,12 +29,12 @@ struct ScoreKeeperTests {
         let scoreboard = ScoreBoard(
             players: [
                 Player(name: "Elisha", score: 0),
-                Player(name: "Tom", score: 0)
+                Player(name: "Tom", score: 4)
             ],
             state: .gameOver,
             doesHighestScoreWin: true
         )
         let winners = scoreboard.winners
-        #expect(winners == [Player(name: "Andre", score: 4)])
+        #expect(winners == [Player(name: "Tom", score: 4)])
     }
 }
