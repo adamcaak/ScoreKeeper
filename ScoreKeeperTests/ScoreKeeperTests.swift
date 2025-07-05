@@ -34,7 +34,7 @@ struct ScoreKeeperTests {
             state: .gameOver,
             doesHighestScoreWin: true
         )
-        let winner = scoreboard.winners
+        let winners = scoreboard.winners
         #expect(winners == [Player(name: "Andre", score: 4)])
     }
 }
