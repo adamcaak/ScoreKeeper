@@ -9,7 +9,7 @@ import Testing
 @testable import ScoreKeeper
 
 struct ScoreKeeperTests {
-
+    
     @Test("Reset player scores", arguments: [0, 10, 20, 100])
     func resetScores(to newValue: Int) async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.
@@ -36,5 +36,19 @@ struct ScoreKeeperTests {
         )
         let winners = scoreboard.winners
         #expect(winners == [Player(name: "Tom", score: 4)])
+    }
+    
+    @Test("Lowest score wins")
+    func lowestScoreWins() {
+        let scoreboard = ScoreBoard(
+            players: [
+                Player(name: "Elisha", score: 0),
+                Player(name: "Tom", score: 4)
+            ],
+            state: .gameOver,
+            doesHighestScoreWin: false
+        )
+        let winners = scoreboard.winners
+        #expect(winners == [Player(name: "Elisha", score: 0)])
     }
 }
