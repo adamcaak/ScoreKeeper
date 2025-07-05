@@ -12,3 +12,7 @@ struct Player: Identifiable {
     var name: String
     var score: Int
 }
+
+extension Player: Equatable {
+    
+}
