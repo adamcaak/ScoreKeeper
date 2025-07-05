@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var scoreboard = ScoreBoard()
+    @State private var startingPoints: Int = 0
     private var startingPoint: Int = 0
     
     var body: some View {
